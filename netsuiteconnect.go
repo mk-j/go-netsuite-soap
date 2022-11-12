@@ -25,7 +25,6 @@ type NetSuiteConnector struct {
 		ConsumerSecret string `yaml:"consumerSecret"`
 		Token          string `yaml:"token"`
 		TokenSecret    string `yaml:"tokenSecret"`
-		APIURL         string `yaml:"apiURL"`
 		SoapURL        string `yaml:"soapURL"`
 	} `yaml:"netsuite"`
 	ConfigFile     string
@@ -74,9 +73,6 @@ func (r *NetSuiteConnector) ReadConfig(path string) {
 	}
 	if r.Auth.Account == "" {
 		panic("Missing from config.yml file: " + "auth: Account")
-	}
-	if r.Auth.APIURL == "" {
-		panic("Missing from config.yml file: " + "auth: APIURL")
 	}
 	if r.Auth.SoapURL == "" {
 		panic("Missing from config.yml file: " + "auth: SoapURL")
